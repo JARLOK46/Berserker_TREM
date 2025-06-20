@@ -1,3 +1,27 @@
+// Función para actualizar el contador de visitas
+function updateVisitCounter() {
+    let visitCount = localStorage.getItem('visitCount');
+    
+    if (visitCount === null) {
+        // Primera visita
+        visitCount = 1;
+    } else {
+        // Incrementar el contador
+        visitCount = parseInt(visitCount) + 1;
+    }
+    
+    // Guardar el nuevo contador
+    localStorage.setItem('visitCount', visitCount);
+    
+    // Mostrar el contador
+    const visitCountElement = document.getElementById('visitCount');
+    if (visitCountElement) {
+        visitCountElement.textContent = visitCount.toLocaleString('es-ES');
+    }
+    
+    return visitCount;
+}
+
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
     // Variables globales
@@ -12,6 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Ocultar loader cuando la página esté completamente cargada
     window.addEventListener('load', function() {
+        // Actualizar el contador de visitas solo una vez cuando la página esté completamente cargada
+        updateVisitCounter();
+        
         setTimeout(function() {
             loader.classList.add('hidden');
             // Aplicar animaciones después de cargar

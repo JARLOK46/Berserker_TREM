@@ -1283,6 +1283,31 @@ section {
     }
 }
 
+/* Estilos para el contador de visitas */
+.visit-counter {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+}
+
+.visit-counter i {
+    color: var(--accent-color);
+    font-size: 1rem;
+}
+
+.visit-counter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
